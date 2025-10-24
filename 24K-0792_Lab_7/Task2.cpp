@@ -2,22 +2,22 @@
 #include <cstring>
 using namespace std;
 
-struct Participant {
+struct Part {
     char name[50];
-    int time;  
+    int time;
 };
 
-void merge(Participant arr[], int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+void merge(Part arr[], int left, int mid, int right) {
+    int n1 = mid-left + 1;
+    int n2 = right-mid;
 
-    Participant L[20];
-    Participant R[20];
+    Part L[20];
+    Part R[20];
 
     for (int i = 0; i < n1; i++)
-        L[i] = arr[left + i];
+        L[i] = arr[left+i];
     for (int j = 0; j < n2; j++)
-        R[j] = arr[mid + 1 + j];
+        R[j] = arr[mid+1+j];
 
     int i = 0, j = 0, k = left;
 
@@ -38,9 +38,9 @@ void merge(Participant arr[], int left, int mid, int right) {
     }
 }
 
-void mergeSort(Participant arr[], int left, int right) {
+void mergeSort(Part arr[], int left, int right) {
     if (left < right) {
-        int mid = (left + right) / 2;
+        int mid = (left+right) / 2;
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
         merge(arr, left, mid, right);
@@ -48,7 +48,7 @@ void mergeSort(Participant arr[], int left, int right) {
 }
 
 int main() {
-    Participant runners[10] = {
+    Part runners[10] = {
         {"Ahmed", 3723},
         {"Bilal", 3650},
         {"Sara", 3580},
@@ -63,22 +63,21 @@ int main() {
 
     int n = 10;
 
-    cout << "Original list:\n";
+    cout<<"Original list:\n";
     for (int i = 0; i < n; i++) {
-        cout << i + 1 << ". " << runners[i].name << "  " << runners[i].time << " seconds\n";
+        cout<<i+1<<". "<<runners[i].name<<"  "<<runners[i].time<<" seconds\n";
     }
 
-    mergeSort(runners, 0, n - 1);
+    mergeSort(runners, 0, n-1);
 
-    cout << "\nSorted list (ascending by finish time):\n";
+    cout<<"\nSorted list (ascending by finish time):\n";
     for (int i = 0; i < n; i++) {
-        cout << i + 1 << ". " << runners[i].name << "  " << runners[i].time << " seconds\n";
+        cout<<i+1<<". "<<runners[i].name<<"  "<<runners[i].time<<" seconds\n";
     }
 
-    cout << "\nTop 5 fastest runners:\n";
+    cout<<"\nTop 5 fastest runners:\n";
     for (int i = 0; i < 5; i++) {
-        cout << i + 1 << ". " << runners[i].name << "  " << runners[i].time << " seconds\n";
+        cout<<i+1<<". "<<runners[i].name<<"  "<<runners[i].time<<" seconds\n";
     }
-
     return 0;
 }
