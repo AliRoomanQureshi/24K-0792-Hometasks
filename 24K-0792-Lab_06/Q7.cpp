@@ -51,7 +51,6 @@ public:
         }
     }
 };
-
 int main() {
     LibraryQueue queue;
     int choice;
