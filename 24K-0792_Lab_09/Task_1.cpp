@@ -107,17 +107,17 @@ void preOrder(Node *root) {
 int main() {
     Node *root = NULL;
 
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
     root = insert(root, 50);
+    root = insert(root, 20);
+    root = insert(root, 10);
+    root = insert(root, 5);
+    root = insert(root, 40);
 
     cout << "Pre-order traversal of the populated AVL tree: \n";
     preOrder(root);
     cout << "\n\n";
 
-    root = insert(root, 15);
+    root = insert(root, 16);
 
     cout << "Pre-order traversal after inserting 15: \n";
     preOrder(root);
